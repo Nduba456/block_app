@@ -33,17 +33,17 @@
         app:layout_constraintTop_toBottomOf="@id/toolBar"
         android:visibility="visible" />
 
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/employeeRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
         android:visibility="visible"
+        android:background="@drawable/employee_background"
         app:layout_constraintTop_toBottomOf="@id/toolBar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
