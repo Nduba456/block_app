@@ -1,0 +1,54 @@
+Employee Management App
+Build tools & versions used
+Kotlin Version: 1.5.31
+Android Studio: Arctic Fox (2020.3.1)
+Gradle Version: 7.0.2
+Minimum SDK: 21 (Android 5.0 Lollipop)
+Target SDK: 31
+Libraries/Frameworks:
+Retrofit: 2.9.0
+ViewModel: 2.4.0
+LiveData: 2.4.0
+Navigation Component: 2.4.0
+View Binding
+Dagger/Hilt for Dependency Injection
+Kotlin Coroutines
+RecyclerView
+Steps to run the app
+Clone the repository: git clone <repository-url>
+Open the project in Android Studio.
+Sync the Gradle files: Android Studio will prompt you to sync the Gradle files after opening the project.
+Build the project: Use Build > Make Project or press Ctrl + F9.
+Run the app: You can either use an emulator or a connected device to run the app by pressing the "Run" button (Shift + F10) or selecting Run > Run 'app' from the menu.
+What areas of the app did you focus on?
+I focused on:
+
+UI Design: Implementing a simple and intuitive interface using ConstraintLayout and RecyclerView.
+Data Fetching: Using Retrofit to fetch employee data from an API.
+State Management: Utilizing ViewModel, LiveData, and Repository patterns to handle UI state and business logic.
+Error Handling: Implementing safeApiCall to manage network errors and exceptions.
+Room Database: I handled the data by saving it in room database after network check.
+Dependency Injection: Applying Dagger/Hilt to inject dependencies efficiently and simplify testing.
+What was the reason for your focus? What problems were you trying to solve?
+The primary reason for focusing on these areas was to ensure that the app is modular, scalable, and maintainable.
+
+I wanted to create a clean architecture with the separation of concerns (View, ViewModel, Repository).
+Solving potential network issues with error handling was critical to ensure a smooth user experience.
+Dependency injection was used to decouple classes and make the app easier to test and extend.
+How long did you spend on this project?
+I spent approximately 20 hours on this project.
+
+Did you make any trade-offs for this project? What would you have done differently with more time?
+Yes, I made trade-offs in terms of testing and UI enhancements:
+
+Testing: While I implemented basic UI tests with Espresso and unit tests, I could have expanded my test coverage to include more edge cases and integration tests.
+UI/UX improvements: Given more time, I would work on optimizing the layout for better performance and include animations for a smoother user experience.
+What do you think is the weakest part of your project?
+The weakest part is probably comprehensive testing. Due to time constraints, I couldn't implement as many tests as I would have liked. More specifically, there is a lack of end-to-end and integration tests for the data layer.
+
+Did you copy any code or dependencies? Please make sure to attribute them here!
+No, I did not copy any code. All of the code was written from scratch for this project. I used open-source libraries like Retrofit, ViewModel, and Dagger, which are credited in the build.gradle file.
+
+Is there any other information you’d like us to know?
+I focused heavily on maintaining a clean architecture, ensuring that the app is easy to scale and maintain in the future.
+If I had more time, I would prioritize adding more testing, improving UI transitions, and optimizing API calls with pagination or caching for better performance.
