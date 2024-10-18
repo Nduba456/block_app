@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.myapplication.R
 import com.myapplication.databinding.FragmentEmployeeBinding
 import com.myapplication.service.Api
 import com.myapplication.service.repository.Repository
@@ -21,7 +23,6 @@ import javax.inject.Inject
 
 class EmployeeFragment : BaseFragment<EmployeeViewModel, FragmentEmployeeBinding, Repository>() {
 
-    private lateinit var employeeBinding: FragmentEmployeeBinding
     private lateinit var employeeAdapter: EmployeeAdapter
 
     override fun getViewModel(): Class<EmployeeViewModel> {
@@ -41,13 +42,11 @@ class EmployeeFragment : BaseFragment<EmployeeViewModel, FragmentEmployeeBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        employeeBinding = getFragmentBinding(layoutInflater, view as ViewGroup?)
-
         setUpRecyclerView()
         viewModel.employeeData.observe(viewLifecycleOwner, Observer {
             when (it){
                 is Resource.Success -> {
-                    val employeeList = it.value.employees
+                    val employeeList = ( it.value.employees)
                     if (employeeList.isNullOrEmpty()) {
                         Toast.makeText(requireContext(), "No employees available", Toast.LENGTH_SHORT).show()
                     } else {
@@ -63,20 +62,16 @@ class EmployeeFragment : BaseFragment<EmployeeViewModel, FragmentEmployeeBinding
                 }
                 is Resource.Failure -> {
                     Toast.makeText(requireContext(), "failed", Toast.LENGTH_SHORT).show()
-
                 }
-
             }
         })
-
         viewModel.getEmployee()
     }
     private fun setUpRecyclerView() {
         employeeAdapter = EmployeeAdapter()
-        employeeBinding.employeeRecyclerView.apply {
-            layoutManager = LinearLayoutManager(requireContext())
-            adapter = employeeAdapter
-        }
+        val employeeRecyclerView = binding.employeeRecyclerView
+        employeeRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        employeeRecyclerView.adapter = employeeAdapter
         Log.d("RecyclerView", "RecyclerView is set up")
     }
 

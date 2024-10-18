@@ -21,7 +21,6 @@ class RetrofitInstance @Inject constructor() {
 
     private val baseUrl = "https://s3.amazonaws.com/sq-mobile-interview/"
 
-
     @Provides
     @Singleton
     internal fun provideGson(): Gson {
